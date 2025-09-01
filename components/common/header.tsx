@@ -23,8 +23,8 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 z-10  w-full flex flex-col ">
       {/* Top Header */}
-      <div className="flex items-center justify-between bg-[#f5f5ff] p-4">
-        {/* Top Left Header */}
+      {/* <div className="flex items-center justify-between bg-[#f5f5ff] p-4">
+        Top Left Header
         <div className="flex gap-8 items-center">
           <Image
             width={148}
@@ -45,7 +45,7 @@ const Header = () => {
             </SelectContent>
           </Select>
         </div>
-        {/* Top Right Header */}
+        Top Right Header
         <div className="flex items-center gap-4">
           <Button
             variant={`outline`}
@@ -60,13 +60,13 @@ const Header = () => {
             src={mslogo}
           />
         </div>
-      </div>
+      </div> */}
       {/* Bottom Header */}
-      <div className="flex items-center justify-between bg-transparent text-white p-4">
+      <div className="flex items-center justify-between text-white p-4 bg-black/30 backdrop-blur-xs  ">
         {/* Left */}
         <div className="w-[10%]"></div>
         {/* Middle */}
-        <div className="flex-1 flex items-center justify-center ">
+        <div className="flex-1 flex items-center justify-center rounded-md">
           {navbar_items.map((item, i) => (
             <Button
               key={item}
