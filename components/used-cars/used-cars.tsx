@@ -22,7 +22,6 @@ const UsedCars = () => {
           </div>
         </div>
       </div>
-      UsedCars
     </div>
   );
 };
