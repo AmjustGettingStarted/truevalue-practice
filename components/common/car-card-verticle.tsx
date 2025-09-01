@@ -4,13 +4,10 @@ import carImage from "@/public/assets/car-card/car.jpg";
 import Image from "next/image";
 import {
   ArrowLeftRight,
-  DotIcon,
   Fuel,
   Gauge,
+  GitGraphIcon,
   Heart,
-  MapPin,
-  MoveRight,
-  Network,
   ShieldCheckIcon,
 } from "lucide-react";
 import { Button } from "../ui/button";
@@ -100,7 +97,7 @@ export default function CarCardVertical({ car }: { car: CarType }) {
                 {car.fuelType}
               </p>
               <p className="flex items-center gap-2">
-                <Network className="size-5" />
+                <GitGraphIcon className="size-5" />
                 {car.transmission}
               </p>
             </div>
