@@ -17,10 +17,10 @@ const Hero = () => {
     Autoplay({ delay: 2000, stopOnInteraction: false })
   );
   return (
-    <div className="mt-[50px] relative">
+    <div className="relative ">
       <Carousel
         plugins={[plugin.current]}
-        className="w-full min-h-full"
+        className="w-full h-screen"
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >
@@ -32,7 +32,7 @@ const Hero = () => {
                 height={960}
                 alt="Banner Image"
                 src={banner}
-                className="object-cover z-0 h-full"
+                className="object-cover z-0 h-screen"
               />
             </CarouselItem>
           ))}
