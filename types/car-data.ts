@@ -8,4 +8,5 @@ export type CarType = {
   fuelType: string;
   transmission: string;
   price: number;
+  img: string;
 };
