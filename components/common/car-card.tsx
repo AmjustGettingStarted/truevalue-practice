@@ -1,42 +1,35 @@
 import type { CarType } from "@/types/car-data";
 import { Card } from "../ui/card";
-import carImage from "@/public/assets/car-card/car.jpg";
 import Image from "next/image";
 import {
   ArrowLeftRight,
-  DotIcon,
   Fuel,
   Gauge,
+  GitGraph,
   Heart,
   MapPin,
   MoveRight,
-  Network,
   ShieldCheckIcon,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import checkLogo from "@/public/assets/car-card/check.svg";
 import tvlogo from "@/public/assets/car-card/true value.png";
 import { Badge } from "../ui/badge";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-} from "../ui/pagination";
+import { PaginationEllipsis } from "../ui/pagination";
 
 export default function CarCard({ car }: { car: CarType }) {
   console.log("car: ", car);
   return (
-    <Card className="shadow-none  rounded-lg border-yellow-400 py-0 w-full ">
+    <Card className="shadow-none hover:shadow-lg hover:scale-105 transition-all ease-in-out duration-500  rounded-lg border-slate-200 py-0 w-full ">
       <div className="flex flex-col md:flex-row items-start w-full">
         {/* Car Image + Left Side */}
         <div className="relative flex flex-col w-[35%] ">
           <Image
             width={1000}
             height={1000}
-            src={carImage}
+            src={car.img}
             alt="Car Image"
-            className="object-cover rounded-lg z-0 shrink-0"
+            className="object-cover rounded-l-lg z-0 shrink-0 h-[230] "
           />
           {/* Top Left Badges */}
           <div className="absolute top-0 left-0 w-fit flex gap-2 p-2">
@@ -79,13 +72,8 @@ export default function CarCard({ car }: { car: CarType }) {
             </Badge>
           </div>
           {/* Bottom Image Pagination */}
-          <div className="absolute bottom-0 left-1/2 ">
-            <PaginationEllipsis className="text-white " />
-
-            {/* <DotIcon className="size-8 text-white" />
-            <DotIcon className="size-8 text-white" />
-            <DotIcon className="size-8 text-white" />
-            <DotIcon className="size-8 text-white" /> */}
+          <div className="absolute bottom-0 left-1/2 -ml-4 ">
+            <PaginationEllipsis className="text-white  " />
           </div>
         </div>
         {/* Right Part */}
@@ -107,7 +95,7 @@ export default function CarCard({ car }: { car: CarType }) {
                   {car.fuelType}
                 </p>
                 <p className="flex items-center gap-2">
-                  <Network className="size-5" />
+                  <GitGraph className="size-5" />
                   {car.transmission}
                 </p>
               </div>
@@ -136,7 +124,7 @@ export default function CarCard({ car }: { car: CarType }) {
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col space-y-1">
                 <Image
                   width={70}
                   height={10}
@@ -144,7 +132,9 @@ export default function CarCard({ car }: { car: CarType }) {
                   src={tvlogo}
                   className="object-cover"
                 />
-                <h3>certified</h3>
+                <h3 className="text-xs text-[#24272C] tracking-tighter">
+                  Certified
+                </h3>
               </div>
             </div>
             <Button
