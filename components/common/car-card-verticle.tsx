@@ -1,6 +1,5 @@
 import type { CarType } from "@/types/car-data";
 import { Card } from "../ui/card";
-import carImage from "@/public/assets/car-card/car.jpg";
 import Image from "next/image";
 import {
   ArrowLeftRight,
@@ -18,16 +17,16 @@ import { PaginationEllipsis } from "../ui/pagination";
 export default function CarCardVertical({ car }: { car: CarType }) {
   console.log("car: ", car);
   return (
-    <Card className="shadow-none  rounded-lg border-slate-200 py-0 max-w-[300px] shrink-0">
+    <Card className="shadow-none hover:shadow-lg hover:scale-105 transition-all ease-in-out duration-500  rounded-lg border-slate-200 py-0 max-w-[300px] shrink-0">
       <div className="flex flex-col items-start w-full">
         {/* Car Image + Left Side */}
         <div className="relative flex flex-col">
           <Image
             width={1000}
             height={1000}
-            src={carImage}
+            src={car.img}
             alt="Car Image"
-            className="object-cover rounded-t-lg z-0 shrink-0 w-full"
+            className="object-cover rounded-t-lg z-0 shrink-0 w-[300px] h-[225px]"
           />
           {/* Top Left Badges */}
           <div className="absolute top-0 left-0 w-fit flex gap-2 p-2">
@@ -70,24 +69,19 @@ export default function CarCardVertical({ car }: { car: CarType }) {
             </Badge>
           </div>
           {/* Bottom Image Pagination */}
-          <div className="absolute bottom-0 left-1/2 ">
+          <div className="absolute bottom-0 left-1/2 -ml-4 ">
             <PaginationEllipsis className="text-white " />
-
-            {/* <DotIcon className="size-8 text-white" />
-            <DotIcon className="size-8 text-white" />
-            <DotIcon className="size-8 text-white" />
-            <DotIcon className="size-8 text-white" /> */}
           </div>
         </div>
         {/* MID Section */}
-        <div className="flex flex-col items-start p-4 space-y-6">
+        <div className="flex flex-col items-start p-4 space-y-6 w-full">
           {/* Middle  */}
-          <div className="flex flex-col space-y-1">
+          <div className="flex flex-col space-y-1 ">
             <p className="text-[#FF7101] text-sm">{car.categorytype}</p>
-            <h1 className="capitalize font-medium text-xl">
+            <h1 className="capitalize font-medium text-xl line-clamp-1">
               {car.year} {car.slug.replaceAll("-", " ")}
             </h1>
-            <div className="flex items-center w-full space-x-4 text-[#696665] font-light">
+            <div className="flex items-center w-full text-xs space-x-4 text-[#696665] font-light">
               <p className="flex items-center gap-2">
                 <Gauge className="size-5" />
                 {car.km}
@@ -102,13 +96,13 @@ export default function CarCardVertical({ car }: { car: CarType }) {
               </p>
             </div>
             <div className="flex items-end  gap-2 pt-2">
-              <p className="text-[#FF7101] text-xl ">₹ {car.price}</p>
+              <p className="text-[#FF7101] text-xl ">₹ {car.price - 1}</p>
               <p className="text-[#B6B6B6]   line-through ">₹ {car.price}</p>
             </div>
             {/* Visible in LG, Hidden in SM */}
           </div>
           {/* Bottom */}
-          <div className="flex border-t w-full justify-between items-center border-l-[#DDD] pt-6">
+          <div className="flex border-t w-full justify-between items-center border-t-[#DDD] pt-6">
             {/* True value Logo */}
             <div className="flex items-center gap-1">
               <div>
@@ -120,13 +114,13 @@ export default function CarCardVertical({ car }: { car: CarType }) {
                   className="object-cover"
                 />
               </div>
-              <div className="tracking-tight">
-                <h3>Kathryn Murphy</h3>
+              <div className="tracking-tight text-sm text-[#24272C]">
+                <h3>TrueValue</h3>
               </div>
             </div>
             <Button
               variant={`ghost`}
-              className="cursor-pointer border-slate-600 border rounded-xl"
+              className="cursor-pointer text-[#FF7101] border border-[#FF7101] hover:text-white hover:bg-[#ff7101] rounded-xl"
             >
               View Car
             </Button>
