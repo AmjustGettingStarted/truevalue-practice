@@ -1,6 +1,6 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import { allCars } from "@/constants/hero";
+import { allCars, sellCars } from "@/constants/hero";
 import { Button } from "../ui/button";
 import { ChevronRight, Search, Zap } from "lucide-react";
 import {
@@ -104,22 +104,14 @@ const HeroTab = () => {
         >
           <div className="h-[84px] px-8 flex justify-between items-center">
             <div className="flex space-x-4 my-2 items-center">
-              <Input
-                className="h-8 focus-visible:border-black focus-visible:ring-0 w-[120px] border border-black shadow-none placeholder:text-black rounded-sm text-center"
-                placeholder="Enter Reg No."
-              />
-              <Input
-                className="h-8 focus-visible:border-black focus-visible:ring-0 w-[120px] border border-black shadow-none placeholder:text-black rounded-sm text-center"
-                placeholder="Name"
-              />
-              <Input
-                className="h-8 focus-visible:border-black focus-visible:ring-0 w-[120px] border border-black shadow-none placeholder:text-black rounded-sm text-center"
-                placeholder="Mobile"
-              />
-              <Input
-                className="h-8 focus-visible:border-black focus-visible:ring-0 w-[120px] border border-black shadow-none placeholder:text-black rounded-sm text-center"
-                placeholder="Email Address"
-              />
+              {sellCars.map((item) => (
+                <Input
+                  key={item.label}
+                  className="h-8 border-[0.5px] focus-visible:border-black focus-visible:ring-0 w-[120px]  border-black shadow-none placeholder:text-center placeholder:text-custom-text-secondary/75 rounded-sm text-start "
+                  placeholder={`${item.label}`}
+                  maxLength={item.maxLength}
+                />
+              ))}
             </div>
             <Button className="h-12 rounded-lg w-[204px] cursor-pointer bg-[#FF7101]">
               Next <ChevronRight />
