@@ -1,8 +1,9 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { bodyTypes, carData } from "@/constants/used-cars";
-import { CarType } from "@/types/car-data";
 import CarCardVertical from "../common/car-card-verticle";
+import CarCard from "../common/car-card";
+import { CarType } from "@/types/car-data";
 
 const BodyTypeTabs = () => {
   return (
@@ -25,13 +26,19 @@ const BodyTypeTabs = () => {
             value={type}
             className="w-full border-t-slate-400"
           >
-            {/* <div className="flex  w-full"> */}
-            <div className="grid grid-cols-2 md:grid-cols-3">
+            {/* <div className="flex flex-col  w-full"> */}
+            <div className="flex space-x-4 items-start">
               {carData
                 .filter((car: CarType) => car.categorytype === type)
                 .map((car: CarType) => (
-                  // <CarCard key={car.slug} car={car} />
                   <CarCardVertical key={car.slug} car={car} />
+                ))}
+            </div>
+            <div className="flex flex-col py-4 space-y-4  w-full">
+              {carData
+                .filter((car: CarType) => car.categorytype === type)
+                .map((car: CarType) => (
+                  <CarCard key={car.slug} car={car} />
                 ))}
             </div>
           </TabsContent>
