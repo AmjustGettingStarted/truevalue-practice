@@ -7,6 +7,7 @@ export default function Home() {
     <>
       {/* Hero Section  */}
       <Hero />
+      {/* Used Cars Section */}
       <UsedCars />
     </>
   );
